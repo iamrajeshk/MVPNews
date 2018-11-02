@@ -21,6 +21,9 @@ import rajesh.com.mvpnews.data.TopHeadlinesResponse
  *Created by rajeshkantipudi on 01/11/18
  */
 
+/**
+ * Adapter to display data in recyclerview
+ */
 class NewsRecyclerViewAdapter(
     private var articles: ArrayList<TopHeadlinesResponse.Article>,
     val newsItemClickListener: NewsItemClickListener

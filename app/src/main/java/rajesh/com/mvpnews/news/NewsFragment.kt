@@ -20,6 +20,10 @@ import rajesh.com.mvpnews.util.BaseFragment
  *Created by rajeshkantipudi on 01/11/18
  */
 
+/**
+ * News fragment to display news that extends Contract.View
+ * Uses Carousel LayoutManager to display data in a Carousel view
+ */
 class NewsFragment : BaseFragment(), NewsContract.View, NewsRecyclerViewAdapter.NewsItemClickListener {
     companion object {
         fun newInstance(): NewsFragment {

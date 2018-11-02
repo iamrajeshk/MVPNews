@@ -1,5 +1,8 @@
 package rajesh.com.mvpnews.data
 
+/**
+ * Model class of TopHeadlinesResponse
+ */
 data class TopHeadlinesResponse(
     val articles: ArrayList<Article>,
     val status: String,

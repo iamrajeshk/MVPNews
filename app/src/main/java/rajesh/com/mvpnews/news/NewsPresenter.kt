@@ -7,6 +7,9 @@ import rajesh.com.mvpnews.data.TopHeadlinesResponse
  *Created by rajeshkantipudi on 01/11/18
  */
 
+/**
+ * Presenter layer with an instance of repo and View(Activity or fragment) passed from the View and implement Contract.UserActionListener
+ */
 class NewsPresenter(
     private val mNewsRepository: NewsRepository,
     val mNewsView: NewsContract.View

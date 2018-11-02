@@ -14,6 +14,9 @@ import retrofit2.http.Query
  *Created by rajeshkantipudi on 01/11/18
  */
 
+/**
+ * ApiInterface to provide a apiClient to make network calls and define api end points
+ */
 interface ApiInterface {
 
     companion object Factory {

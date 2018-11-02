@@ -9,6 +9,9 @@ import retrofit2.Response
  *Created by rajeshkantipudi on 01/11/18
  */
 
+/**
+ * Network data source, provides data from api
+ */
 class NetworkDataRepository : NewsRepository {
 
     private val apiClient = ApiInterface.create()
