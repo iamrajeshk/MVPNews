@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">MVPNews</string>
+    <string name="news_image">News Image</string>
+    <string name="api_call_error">Api Failure</string>
+    <string name="server_error">Error with server</string>
 </resources>
