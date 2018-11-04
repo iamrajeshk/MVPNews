@@ -17,10 +17,10 @@ class NetworkDataRepository : NewsRepository {
     private val apiClient = ApiInterface.create()
 
     override fun getNews(callback: NewsRepository.LoadNewsCallback) {
-        val apiCall = apiClient.getTopNews("US")
+        val apiCall = apiClient.getTopNews("IN")
         apiCall.enqueue(object : Callback<TopHeadlinesResponse> {
             override fun onFailure(call: Call<TopHeadlinesResponse>, t: Throwable) {
-                callback.onServerFailure()
+                callback.onServerFailure(t.message)
             }
 
             override fun onResponse(call: Call<TopHeadlinesResponse>, response: Response<TopHeadlinesResponse>) {
@@ -34,6 +34,8 @@ class NetworkDataRepository : NewsRepository {
                         }
                         callback.onNewsLoaded(topHeadlinesResponse.articles)
                     }
+                } else {
+                    callback.onServerFailure(response.errorBody().toString())
                 }
             }
 

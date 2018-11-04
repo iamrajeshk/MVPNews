@@ -12,7 +12,7 @@ interface NewsRepository {
 
     interface LoadNewsCallback {
         fun onNewsLoaded(articles: ArrayList<TopHeadlinesResponse.Article>)
-        fun onServerFailure()
+        fun onServerFailure(errorBody: String?)
     }
 
     fun getNews(callback: LoadNewsCallback)

@@ -14,6 +14,7 @@ import rajesh.com.mvpnews.R
 import rajesh.com.mvpnews.data.NewsRepositories
 import rajesh.com.mvpnews.data.TopHeadlinesResponse
 import rajesh.com.mvpnews.util.BaseFragment
+import rajesh.com.mvpnews.util.NetManager
 
 
 /**
@@ -37,7 +38,7 @@ class NewsFragment : BaseFragment(), NewsContract.View, NewsRecyclerViewAdapter.
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         mAdapter = NewsRecyclerViewAdapter(ArrayList(), this)
-        mUserActionListener = NewsPresenter(NewsRepositories.getNewsRepo(), this)
+        mUserActionListener = NewsPresenter(NewsRepositories.getNewsRepo(NetManager(activity as Context)), this)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -70,8 +71,8 @@ class NewsFragment : BaseFragment(), NewsContract.View, NewsRecyclerViewAdapter.
         mUserActionListener.loadNews()
     }
 
-    override fun showErrorMessage() {
-        Toast.makeText(activity, (activity as Context).resources.getString(R.string.server_error), Toast.LENGTH_SHORT)
+    override fun showErrorMessage(errorBody: String?) {
+        Toast.makeText(activity, errorBody, Toast.LENGTH_SHORT)
             .show()
     }
 

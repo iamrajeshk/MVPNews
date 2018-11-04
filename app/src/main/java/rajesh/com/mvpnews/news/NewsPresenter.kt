@@ -18,8 +18,8 @@ class NewsPresenter(
     override fun loadNews() {
         mNewsView.setProgressBarIndicator(true)
         mNewsRepository.getNews(object : NewsRepository.LoadNewsCallback {
-            override fun onServerFailure() {
-                mNewsView.showErrorMessage()
+            override fun onServerFailure(errorBody: String?) {
+                mNewsView.showErrorMessage(errorBody)
             }
 
             override fun onNewsLoaded(articles: ArrayList<TopHeadlinesResponse.Article>) {

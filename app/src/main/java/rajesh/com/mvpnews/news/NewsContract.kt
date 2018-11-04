@@ -14,7 +14,7 @@ interface NewsContract {
         fun setProgressBarIndicator(active: Boolean)
         fun showNews(articles: ArrayList<TopHeadlinesResponse.Article>)
         fun showNewsDetailUI(noteTitle: String)
-        fun showErrorMessage()
+        fun showErrorMessage(errorBody: String?)
     }
 
     interface UserActionListener {
