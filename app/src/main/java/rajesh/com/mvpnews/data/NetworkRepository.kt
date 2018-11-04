@@ -12,7 +12,7 @@ import retrofit2.Response
 /**
  * Network data source, provides data from api
  */
-class NetworkDataRepository : NewsRepository {
+class NetworkRepository : NewsRepository {
 
     private val apiClient = ApiInterface.create()
 

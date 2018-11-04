@@ -11,10 +11,9 @@ import com.azoft.carousellayoutmanager.CarouselZoomPostLayoutListener
 import com.azoft.carousellayoutmanager.CenterScrollListener
 import kotlinx.android.synthetic.main.fragment_news.*
 import rajesh.com.mvpnews.R
-import rajesh.com.mvpnews.data.NewsRepositories
 import rajesh.com.mvpnews.data.TopHeadlinesResponse
 import rajesh.com.mvpnews.util.BaseFragment
-import rajesh.com.mvpnews.util.NetManager
+import rajesh.com.mvpnews.util.Injection
 
 
 /**
@@ -38,7 +37,8 @@ class NewsFragment : BaseFragment(), NewsContract.View, NewsRecyclerViewAdapter.
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         mAdapter = NewsRecyclerViewAdapter(ArrayList(), this)
-        mUserActionListener = NewsPresenter(NewsRepositories.getNewsRepo(NetManager(activity as Context)), this)
+        val repository = Injection.provideRepository(activity as Context)
+        mUserActionListener = NewsPresenter(repository, this)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
